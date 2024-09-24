@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalale=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>     
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Work+Sans:wght@500&display=swap');
+        *{
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+          font-family: 'Roboto', sans-serif;
+          text-decoration: none;
+        }
+        
+        body{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          background-image: url("356599995_987571062378168_6190423395628024098_n.jpg");
+          background-size: cover;
+          background-position: 0 20%;
+          position: relative;
+        }
+        .bg-img{
+          display: none;
+          height: 100%;
+          width: 100%;
+          background-image: url("https://loveproposal.glitch.me/3298299.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 0 0;
+          position: absolute;
+        }  
+        .envelope {
+      width: 400px;
+      height: 250px;
+      background-color: rgb(253, 149, 166);
+      position: relative;
+      margin: 100px auto;
+      border: 2px solid #000000;
+    }
+
+    .back-flap {
+      width: 0;
+      height: 0;
+      border-left: 200px solid transparent;
+      border-right: 200px solid transparent;
+      border-bottom: 100px solid rgb(255, 0, 98);
+      position: absolute;
+      top: 0;
+      transform: rotate(180deg);
+    }
+
+
+    .body {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(253, 149, 166);
+      position: absolute;
+      top: 5px;
+      border-bottom: 2px solid #000000;
+    }
+
+
+    .seal {
+      position: absolute;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      animation: heartbeat .8s  infinite;
+    }
+    
+    @keyframes heartbeat{
+    0%{
+    scale: 1;
+    }
+    50%{
+    scale: 1.2;
+    }
+    100%{
+    scale: 1;
+    }
+    }
+    .envelope .by{
+      z-index: 3;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 25px;
+      gap: 10px;
+    }
+    .by input{
+      background: transparent;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom:2px dashed #000000 ;
+      outline: none;
+      font-size: 20px;
+      width: 250px;
+      
+
+    }
+    .to input{
+      background-color: black;
+    }
+    .back-flap {
+      transition: transform 2s ease; 
+    }
+    
+    .open .back-flap {
+      transform: rotateX(180deg);
+    }
+    
+    
+    .password-box input[type="text"] {
+      appearance: none;
+      border: none;
+      background-color: transparent;
+      font-size: 25px;
+      outline: none;
+      width: 40px;
+      text-align: center;
+      padding: 8px;
+    }
+    
+    .password-container {
+      position: absolute;
+      display: none;
+      z-index: 5;
+      padding: 10px;
+      border: 2px double #fff;
+      background-color: #081b29;
+    }
+    
+    
+    .password-box {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #fff;
+      border-radius: 6px;
+      padding: 0%;
+    }
+    .digit-input{
+      color: #fff;
+      text-align: center;
+      padding: 1px;
+      font-size: 25px;
+    }
+    .password-box-container{
+      border: 2px double #fff;
+      padding: 20px;
+      gap: 5px;
+      display: flex;
+    }
+    
+    
+
+        .container{
+          height: 250px;
+          width: 400px;
+          background: #f77d7d;
+          box-shadow: 0 0 10px #FFECEC;
+          position: absolute;
+          display: none;
+          justify-content: center;
+          border: 2px solid #000000;
+          overflow: visible;
+        }
+        .container .note{
+          height: 350px;
+          width: 320px;
+          background-image: url("366748868_6507559915991434_3563175277689399342_n.jpg");
+          background-position: bottom;
+          margin-top: -105px;
+          display: none;
+          justify-content: center;
+
+        }
+        .flap{
+          width: 0;
+          height: 0;
+          border-left: 203px solid transparent;
+          border-right: 203px solid transparent;
+          border-bottom: 120px solid rgb(255, 0, 98);
+          position: absolute;
+          top: -49%;
+          z-index: -1;
+        }
+
+        .flap-bottom {
+          width: 100%;
+          height: 135px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+          background-color: rgb(248, 61, 133);
+          z-index: 999;
+
+
+        }
+        
+
+        .flap-right{
+          width: 0;
+          height: 0;
+          border-left: 125px solid transparent;
+          border-right: 125px solid transparent;
+          border-bottom: 120px solid rgb(255, 0, 98);
+          position: absolute;
+          transform: rotate(270deg);
+          left: 53.5%;
+          margin-top: 16.5%;
+          z-index: 100;
+        }
+
+        .flap-left{
+          width: 0;
+          height: 0;
+          border-left: 125px solid transparent;
+          border-right: 125px solid transparent;
+          border-bottom: 120px solid rgb(255, 0, 98);
+          position: absolute;
+          left: -16.5%;
+          margin-top: 16.5%;
+          transform: rotate(90deg);
+          z-index: 100;
+        }
+        .heart{
+          position: absolute;
+          font-size: 40px;
+          top: -50%;
+          right: 5%;
+          color: red;
+          animation: heartbeat .8s  infinite;
+          z-index: 101;
+        }
+        @keyframes heartbeat{
+            0%{
+                scale: 1;
+            }
+            50%{
+                scale: 1.2;
+            }
+            100%{
+                scale: 1;
+            }
+        }
+        .text{
+          position: absolute;
+          color: #000000;
+          letter-spacing: 1px;
+          font-size: 23px;
+          text-align: center;
+          line-height: 37px;
+          text-shadow: 1px 1px 5px #E1AEFF;
+          margin-left: 25px;
+          margin-top: 30px;
+        }
+        .girl{
+          color: #000000;
+         /* background-color: #000000;*/
+
+        }
+        .love {
+            font-size: 55px;
+            font-weight: bold;
+            display: none;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .ans-div{
+          width: 400px;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          position: absolute;
+          bottom: 10%;
+        }
+        .ans-btn{
+          background: white;
+          height: 40px;
+          width: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #FF78C4;
+          box-shadow: 0 0 10px white;
+          cursor: pointer;
+          display: none;
+          border: none;
+          border-radius: 8px;
+
+        }
+        .buttons{
+          height: 50px;
+          margin-top: 120px;
+          position: absolute;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .btn{
+          display: flex;
+          height: 40px;
+          width: 80px;
+          align-items: center;
+          justify-content: center;   
+          cursor: pointer;
+          box-shadow: 3px 3px 10px #E1AEFF;
+          color: black;
+          background: #ff78c4;  
+          transition: 0.3s all;
+          margin-right: 10px;
+          border-radius: 8px;
+          border: none;
+        }
+        .btn-2{
+          display: none;
+          border-radius: 8px;
+          border: none;
+        }
+        .btn:hover{
+          box-shadow: 1px 1px 5px #E1AEFF;
+        }
+        .statement{
+          display: none;
+          height: 100%;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          line-height: 70px;
+          position: absolute;
+          letter-spacing: 2px;
+          font-family: 'Work Sans', sans-serif;
+          font-size: 30px;
+          color: rgb(239, 11, 117);
+          background: rgba(255, 120, 196, 0.7);
+          padding: 100px;
+        }
+
+        
+       
+         
+
+        @media screen and (max-width: 900px){
+          body{
+            min-height: 100vh;
+          }
+          .container{
+            height: 250px;
+            width: 80%;
+          }
+          .flap{
+            border-left:197px solid transparent;
+            border-right:197px solid transparent;
+            border-bottom: 120px solid rgb(255, 0, 98);
+          }
+          
+          .flap-left{
+            top: 3.5%;
+            margin-left: -2.5%;
+            border-left: 125px solid transparent;
+            border-left: 125px solid transparent;
+            border-bottom: 100px solid rgb(255, 0, 98);
+          }
+          .flap-right{
+            top: 3.5%;
+            margin-left: 3%;
+            border-left: 125px solid transparent;
+            border-left: 125px solid transparent;
+            border-bottom: 100px solid rgb(255, 0, 98);
+
+          }
+          body{
+            background-image: url("cropped.jpg");
+          }
+          .bg-img{
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+          .statement{
+          letter-spacing: 3px;
+          font-family: 'Work Sans', sans-serif;
+          font-size: 20px;
+          color: black;
+          background: rgba(255, 120, 196, 0.7);
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          text-align: center;
+          width: 100%;
+          line-height: 30px;
+          padding: 40px;
+        }
+        }
+        @media screen and (max-width: 450px){
+          .envelope{
+            height: 200px;
+            width: 80%;
+          }
+          .container{
+            height: 200px;
+            width: 80%;
+          }
+          .back-flap{
+            border-left: 156px solid transparent;
+            border-right: 156px solid transparent;
+            border-bottom: 70px solid rgb(255, 0, 98);
+          }
+          .seal{
+            margin-top: -4px;
+          }
+          .container .note{
+            height: 250px;
+            margin-bottom: -90px;
+            width:240px;
+
+          }
+          .container .note .text{
+            font-size: 18px;
+          }
+          .flap{
+            border-left:157.5px solid transparent;
+            border-right:157.5px solid transparent;
+            border-bottom: 120px solid rgb(255, 0, 98);
+            margin-top: -25px;
+          }
+          
+          .flap-right {
+            border-left: 101px solid transparent;
+            border-right: 101px solid transparent;
+            border-bottom: 85px solid rgb(255, 0, 98);
+            margin-bottom: -15px;
+            margin-left: 2px;
+          }
+          .flap-left{
+            border-left: 96px solid transparent;
+            border-right: 96px solid transparent;
+            border-bottom: 85px solid rgb(255, 0, 98);
+            margin-bottom: -10px;
+            margin-left: -4px;
+          }
+          
+          
+          
+          .flap-bottom{
+            height: 101.25px;
+          }
+          .heart{
+            top: -64%;
+            right: -14px;
+          }
+          .statement{
+          letter-spacing: 3px;
+          font-size: 15px;
+          color: black;
+          background: rgba(255, 120, 196, 0.7);
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          text-align: center;
+          width: 100%;
+          line-height: 20px;
+          padding: 25px;
+        }
+
+
+        }
+
+    </style>
+    <title>Will you......</title>
+</head>
+<body>
+    <div class="bg-img">
+    </div>
+    <div class="statement">
+    </div>
+
+    <div class="envelope">
+      <div class="body"></div>
+      <div class="back-flap"></div>
+      <div class="seal">❤</div>
+      <div class="by"><i> BY:</i><input type="text" name="by" id="by" value="Alshan Rijal" readonly>
+        <br>
+      <i>To :</i><input type="text" name="to" id="to" value="Sanju Dulal" readonly>
+      </div>
+    </div>
+    <div class="password-container">
+
+    <form action="" id="code">
+      <div class="password-box-container">
+      <div class="password-box">
+        <input type="text" id="digit4" class="digit-input" maxlength="1" placeholder="0"/>
+      </div>
+      <div class="password-box">
+        <input type="text" id="digit4" class="digit-input" maxlength="1" placeholder="0"/>
+      </div>
+      <div class="password-box">
+        <input type="text" id="digit4" class="digit-input" maxlength="1" placeholder="0"/>
+      </div>
+      <div class="password-box">
+        <input type="text" id="digit4" class="digit-input" maxlength="1" placeholder="0"/>
+      </div>
+      </div>
+    </form>
+    </div>
+    
+   <div class="container" id="container">
+      <div class="flap"></div>
+      <div class="flap-left"></div>
+      <div class="flap-right"></div>
+      <div class="flap-bottom"></div>
+
+        <div class="note">
+          <div class="heart">
+            ❤
+          </div>
+          <div class="text">
+              Hey <span class="girl"></span>, I wanna tell you something!
+          </div>
+          <div class="love">
+              <div class="i">I  </div>
+              <div class="lv">Want to</div>
+              <div class="u">....</div>
+          </div>
+          <div class="buttons">
+              <div class="btn btn-1">What?</div>
+              <div class="btn btn-2"> Hmm???</div>
+          </div>
+        </div>
+    </div>
+    <div class="ans-div">
+        <div class="ans-btn yes">YES</div> 
+        <div class="ans-btn no">NO</div>
+    </div>
+
+
+    <script>
+      let passwordcontainer = document.querySelector(".password-container");
+        let container = document.getElementById("container");
+        let envelope = document.querySelector(".envelope");
+        let open = document.querySelector(".seal");
+        let love = document.querySelector(".love");
+        let element = document.querySelector(".element");
+        let body = document.querySelector("body");
+        let text = document.querySelector(".text");
+        let btn1 = document.querySelector(".btn-1");
+        let btn2 = document.querySelector(".btn-2");
+        let bgimg = document.querySelector(".bg-img");
+        let proposal = document.querySelector(".statement");
+        let yes =  document.querySelector(".yes");
+        let no =  document.querySelector(".no");
+        let bcgsong = new Audio("song.mp3");
+        let sad = new Audio("music_zapsplat_darkest_hours.mp3");
+        let lvsong = new Audio("Studio_Project_V1.mp3");
+        let digitInputs = document.querySelectorAll('.digit-input');
+        let code = document.getElementById("code");
+        let note = document.querySelector('.note');
+
+        envelope.classList.add("fadein");
+
+
+        open.addEventListener("click", event =>{
+            passwordcontainer.style.display = "flex";
+            passwordcontainer.classList.add("fadein");
+
+            envelope.classList.add("open");
+
+
+        })
+        btn1.addEventListener("click", event =>{
+          text.style.display = "none";
+            love.style.display ="flex";
+            btn1.style.display = "none";
+            btn2.style.display = "flex";
+            
+        });
+        btn2.addEventListener("click", event =>{
+          setTimeout(() =>{
+            container.classList.add("fadeout");  
+          },3000);        
+        });
+
+        btn2.addEventListener("click", event =>{
+            container.style.display = "none";
+            proposal.style.display= "flex";
+            proposal.innerHTML ="Aru le cringe/Nibba k k vanxan tara If You like i am ready to do anything for you 💫 tbh it may sound like a joke but my love isn't.<br> I want to share all my dreams, hopes, and love with you for the rest of my life. So, here I am, asking you to take this next step with me.<br><br> Will you marry me Sanju 🫠❤️‍🩹,(Aaile nei ta haina paxi) "
+            bgimg.style.display = "flex";
+            no.style.display = "flex";
+            yes.style.display = "flex";
+            bcgsong.play();
+        });
+        no.addEventListener("click", event =>{
+            container.style.display = "none";
+            proposal.style.display ="flex";
+            proposal.innerHTML= ""
+            bcgsong.pause();
+            sad.play();
+            bgimg.style.backgroundImage = 'URL("HEART-BREAK.jpeg")';
+            bgimg.style.backgroundPosition= "center";
+            yes.style.display ="none";
+            no.style.display ="none";
+
+
+        });
+        yes.addEventListener("click", event =>{
+            container.style.display ="none";
+            proposal.style.display ="flex";
+            proposal.innerHTML = "Luti🫶🏻. you are perfect in so many ways😗. Your beauty shines both inside and out, and your smile always brightens my day🌄. You have a kind heart that cares for me , making me feel loved and special😋. I admire how you always support me, encouraging me to chase my dreams and be my best self🥹. You listen to me without judgment, and I can share my thoughts and feelings with you easily💫. You my baulai understand me like no one else😭, which makes our bond even stronger🥹🫶🏻. You are not just my girlfriend.😻 you are my closest friend and my greatest love.💋 I feel so lucky and grateful to have you in my life, and I cherish every moment we share together.I love you a lot lutii 😭❤️‍🩹"
+            bcgsong.pause();
+            lvsong.play();
+            bgimg.style.backgroundImage = 'URL("356085646_185367204510061_8742987548833758691_n.jpg")';
+            yes.style.display ="none";
+            no.style.display ="none";
+
+        });
+        
+        
+
+        digitInputs.forEach((input, index) => {
+    input.addEventListener('input', (event) => {
+      let value = event.target.value;
+
+      if (value) {
+        if (index < digitInputs.length - 1) {
+          digitInputs[index + 1].focus();
+        }
+      } else {
+        if (index > 0) {
+          digitInputs[index - 1].focus();
+        }
+      }
+
+      let allFilled = Array.from(digitInputs).every((input) => input.value !== '');
+      if (allFilled) {
+        let enteredPassword = Array.from(digitInputs).map((input) => input.value).join('');
+
+        if (enteredPassword === '0809') {
+          envelope.style.display = 'none';
+          passwordcontainer.style.display = 'none';
+          container.style.display = 'flex';
+          container.classList.add("fadein");
+          note.style.display ="flex";
+
+        }
+        else {
+          digitInputs.forEach((input) => (input.value = ''));
+          digitInputs[index - 3].focus();
+        }
+      }
+    });
+
+    input.addEventListener('keydown', (event) => {
+      let BACKSPACE_KEYCODE = 8;
+      let DELETE_KEYCODE = 46;
+
+      if (event.keyCode === BACKSPACE_KEYCODE || event.keyCode === DELETE_KEYCODE) {
+        if (!input.value) {
+          if (index > 0) {
+            digitInputs[index - 1].focus();
+          }
+        }
+      }
+    });
+  });
+
+
+
+    </script>
+</body>
+</html>
